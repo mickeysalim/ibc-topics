@@ -183,9 +183,9 @@
         $("thanks").textContent = name ? "Thank you, " + name + "!" : "Thank you!";
         $("successMsg").textContent = "Your suggestion for " + s.name + " has been sent.";
         var last = here === speakers.length - 1;
-        $("nextSpeaker").hidden = last;
+        $("nextSpeaker").textContent = last ? "Back to the first speaker" : "Suggest for the next speaker →";
         celebrate();
-        (last ? $("again") : $("nextSpeaker")).focus({ preventScroll: true });
+        $("nextSpeaker").focus({ preventScroll: true });
       })
       .catch(function () {
         submit.innerHTML = "Submit suggestion";
@@ -196,15 +196,9 @@
   });
 
   $("nextSpeaker").addEventListener("click", function () {
-    if (idx < speakers.length - 1) {
-      idx++;
-      showForm();
-      render();
-      topic.focus({ preventScroll: true });
-    }
-  });
-  $("again").addEventListener("click", function () {
+    idx = idx < speakers.length - 1 ? idx + 1 : 0;
     showForm();
+    render();
     topic.focus({ preventScroll: true });
   });
 

@@ -1,6 +1,6 @@
 # IBC Topic Suggestions
 
-A one-page site where Indonesian Buddhist Community Singapore members suggest Dhamma topics for the speakers at the monthly Indonesian service. Each suggestion is saved as a row in a Google Sheet.
+A one-page site where Indonesian Buddhist Community Singapore members suggest Dhamma topics for the speakers at the Indonesian Service. Each suggestion is saved as a row in a Google Sheet.
 
 ## How it works
 - Members swipe through the speakers, write one or more topic suggestions (no length limit), add their name if they like, and submit.
