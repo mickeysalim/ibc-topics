@@ -2,7 +2,7 @@
 window.IBC_CONFIG = {
   // Paste the Google Apps Script web app URL here (ends in /exec).
   // While it's empty, the site runs in preview mode: suggestions are NOT saved.
-  API_URL: "",
+  API_URL: "https://script.google.com/macros/s/AKfycbwdjRYNxq1IW5HUQx92eoecOPbeVZXwtLWZPJ_bx44gS_7m0GknH_lSY7eX8awA9gQ/exec",
 
   // Used only if the Google Sheet can't be reached (or API_URL is empty).
   // The live list comes from the "Speakers" tab of the Google Sheet.
