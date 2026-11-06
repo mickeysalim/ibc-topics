@@ -16,8 +16,8 @@ Plain HTML, CSS and JavaScript with no build step.
 - `apps-script/Code.gs`: the Google Sheet backend
 
 ## One-time setup: connect the Google Sheet
-1. Open the **IBC Topic Suggestions** Google Sheet.
-2. Go to **Extensions → Apps Script**. Delete what's there, paste the contents of `apps-script/Code.gs`, and click **Save**.
+1. On a computer (not the phone app), go to https://script.google.com and sign in with the Google account that owns the **IBC Topic Suggestions** sheet. Click **New project**.
+2. Delete what's there, paste the contents of `apps-script/Code.gs`, and click **Save**. (`SHEET_ID` in the code already points to the sheet. If the sheet is ever replaced, put the new ID there.)
 3. Click **Deploy → New deployment**. Under "Select type", choose **Web app**.
    - Execute as: **Me**
    - Who has access: **Anyone**

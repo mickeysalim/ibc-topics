@@ -1,8 +1,8 @@
 /**
  * IBC Topic Suggestions: Google Sheet backend.
  *
- * Paste this into the sheet's Apps Script editor (Extensions > Apps Script),
- * then Deploy > New deployment > Web app:
+ * Paste this into a new project at https://script.google.com (or the sheet's
+ * Extensions > Apps Script), then Deploy > New deployment > Web app:
  *   Execute as: Me
  *   Who has access: Anyone
  * Copy the web app URL (ends in /exec) into config.js as API_URL.
@@ -14,10 +14,16 @@
 var SUGGESTIONS_TAB = "Suggestions";
 var SPEAKERS_TAB = "Speakers";
 var TIME_ZONE = "Asia/Singapore";
+// The "IBC Topic Suggestions" Google Sheet (from its URL: /spreadsheets/d/<ID>/edit)
+var SHEET_ID = "11ftpETaiRuZrl9TFALkqPIxsSfj4SM02wuxGbXGNQnQ";
+
+function book() {
+  return SpreadsheetApp.openById(SHEET_ID);
+}
 
 // Speakers tab columns: Order | Name | Photo URL | Show on site
 function doGet() {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SPEAKERS_TAB);
+  var sheet = book().getSheetByName(SPEAKERS_TAB);
   var rows = sheet.getDataRange().getValues().slice(1);
   var speakers = rows
     .filter(function (r) {
@@ -43,7 +49,7 @@ function doPost(e) {
     var name = String(data.name || "").trim();
     if (!speaker || !topic) return json({ ok: false, error: "Missing speaker or topic" });
 
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SUGGESTIONS_TAB);
+    var sheet = book().getSheetByName(SUGGESTIONS_TAB);
     sheet.appendRow([
       Utilities.formatDate(new Date(), TIME_ZONE, "yyyy-MM-dd HH:mm"),
       plainText(speaker),
